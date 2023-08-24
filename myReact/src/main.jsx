@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Speed from './app';
+import form from './app';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Speed/>
+  <form/>
 );
