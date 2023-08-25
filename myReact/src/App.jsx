@@ -3,7 +3,7 @@ import Nishant from "./app.module.css"
 
 const Car=()=>{
    //let styling={backgroundColor:"blue"}
-    const form=<form>
+    const Form=<form>
     <div className="form-group">
       <label htmlFor="exampleInputEmail1">Email address</label>
       <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
@@ -19,7 +19,7 @@ const Car=()=>{
     </div>
     <button type="submit" className="btn btn-primary" >Submit</button>
   </form>
-    return form;
+    return Form;
 }
 
 export default Car;
