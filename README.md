@@ -1,2 +1,2 @@
-# Front-end-part-REACT
+# Front-end-part
 A JS LIBRARY WHICH MAKES LIFE EASY
