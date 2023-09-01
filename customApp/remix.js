@@ -4,7 +4,7 @@
     domElement.setAttribute("href",reactElement.props.href)
     domElement.setAttribute("target",reactElement.props.target)
 
-    Box.appendChild(domElement)grt
+    Box.appendChild(domElement)
  }
 
 const reactElement={
