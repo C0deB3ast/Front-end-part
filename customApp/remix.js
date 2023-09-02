@@ -20,21 +20,11 @@ Box.appendChild(domElement)
 const reactElement={
     type:'a',
     props:{
-        href:"https://youtube.com",
+        href:"https://Youtube.com",
         target:"_blank"
     },
 
     children:"Visit Youtube"
- }
-
-const reactElement={
-    type:'a',
-    props:{
-        href:"https//google.com",
-        target:"_blank"
-    },
-
-    children:"Visit Google"
 }
 
 const mainBox = document.querySelector('#root')
