@@ -1,11 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit'
 
-const initialState{
+const initialState={
     number:true
 }
 
 export const custom=createReducer(initialState,{
     changethenumber:(state,action)=>{
-        state.number = action
+        state.number = action.payload
     }
 })
