@@ -7,6 +7,9 @@ function App() {
   const addTodo=(todo)=>{
     setTodos((oldvl)=>[{id:Math.random(), ...todo},...oldvl])
   }
+  const updateTodo=(id,todo)=>{
+    setTodos((oldvl)=> oldvl.map((oldvlTodo)=>(oldvlTodo.id===id ? todo:oldvlId)))
+  }
 
   return (
     <Todocontextprovider value={{todos,addTodo,updateTodo,deleteTodo,toggleCheacked}}>
