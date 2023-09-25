@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { Todocontextprovider } from './TdDoContext'
 
@@ -16,6 +16,17 @@ function App() {
   const toggleCheacked=(id)=>{
     setTodos((oldvl)=>oldvl.map((oldvlTodo)=>oldvlTodo == id ? {...oldvlTodo, checked: !oldvlTodo.checked}:oldvlTodo));
   }
+  useEffect(()=>{
+    const todos=JSON.parse(localStorage.getItem("todos"));
+
+    if(todos && todos.length>0){
+      setTodos(todos)
+    }
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem("todos",JSON.stringify(todos))
+  },[todos])
 
   return (
     <Todocontextprovider value={{todos,addTodo,updateTodo,deleteTodo,toggleCheacked}}>
