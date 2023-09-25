@@ -5,16 +5,16 @@ import { Todocontextprovider } from './TdDoContext'
 function App() {
   const [todos, setTodos] = useState([])
   const addTodo=(todo)=>{
-    setTodos((oldvl)=>[{id:Math.random(), ...todo},...oldvl])
+    setTodos((oldvl)=>[{id:Math.random(), ...todo},...oldvl]);
   }
   const updateTodo=(id,todo)=>{
-    setTodos((oldvl)=> oldvl.map((oldvlTodo)=>(oldvlTodo.id===id ? todo:oldvlTodo)))
+    setTodos((oldvl)=> oldvl.map((oldvlTodo)=>(oldvlTodo.id===id ? todo:oldvlTodo)));
   }
   const deleteTodo=(id)=>{
-    setTodos((oldvl)=>oldvl.filter((oldvlTodo)=>oldvlTodo.id !==id))
+    setTodos((oldvl)=>oldvl.filter((oldvlTodo)=>oldvlTodo.id !==id));
   }
   const toggleCheacked=(id)=>{
-    setTodos((oldvl)=>oldvl.map((oldvlTodo)=>oldvlTodo == id ? {...oldvlTodo, checked: !oldvlTodo.checked}:oldvlTodo))
+    setTodos((oldvl)=>oldvl.map((oldvlTodo)=>oldvlTodo == id ? {...oldvlTodo, checked: !oldvlTodo.checked}:oldvlTodo));
   }
 
   return (
