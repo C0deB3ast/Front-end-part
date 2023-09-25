@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react'
  
 export const Todocontext=createContext({
-    todos:[{
+     todos:[{
         id:7,
         todo:"Todo Tasks",
         checked: false
