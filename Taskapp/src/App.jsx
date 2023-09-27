@@ -14,8 +14,8 @@ function App() {
   const deleteTask=(id)=>{
     setTodos((prev)=>prev.filter((oldvals)=>oldvals.id !== id))
   }
-   const toggleComplete=(id)=>{
-    setTodos((prev)=>prev.map((oldvals)=>oldvals === id ? ))
+   const toggleCompleted=(id)=>{
+    setTodos((prev)=>prev.map((oldvals)=>oldvals === id ? {...oldvals,cheacked: !oldvals.cheacked} :oldvals))
    }
 
 
