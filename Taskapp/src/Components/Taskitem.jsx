@@ -1,28 +1,37 @@
-import React from 'react'
-import { useTask } from '../Taskcontext';
+import React, {useState}from 'react'
+import { useTask } from '../Context';
+
 
 function Taskitem({todo}) {
     const [isTodoEditable, setIsTodoEditable] = useState(false);
     const [todoMsg, setTodoMsg] = useState(todo.todo);
-    const {updateTask,deleteTask,toggleComplete}=useTask
+    const {updateTask,deleteTask,toggleComplete}=useTask();
+    const editTodo=()=>{
+        updateTask(todo.id,{...todo,todo:todoMsg})
+        setIsTodoEditable(false)
+    }
+    const toggleChecked=()=>{
+        toggleComplete(todo.id)
+    }
+
   return (
     <div
     className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${
-        todo.checked? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
+        todo.cheacked? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
     }`}
 >
     <input
         type="checkbox"
         className="cursor-pointer"
         checked={todo.checked}
-        onChange={toggleComplete}
+        onChange={toggleChecked}
     />
     <input
         type="text"
         className={`border outline-none w-full bg-transparent rounded-lg ${
             isTodoEditable ? "border-black/10 px-2" : "border-transparent"
-        } ${todo.checked? "line-through" : ""}`}
-        value={todoMsg}
+        } ${todo.cheacked ? "line-through" : ""}`}
+        value={todoMsg} 
         onChange={(e) => setTodoMsg(e.target.value)}
         readOnly={!isTodoEditable}
     />

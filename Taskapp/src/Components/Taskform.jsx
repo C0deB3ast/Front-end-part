@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useTask } from '../Taskcontext/Taskcontext'
+import { useTask } from '../Context/TaskContext'
 
 function Taskform() {
     const [todo,setTodo]=useState("")
-    const {addTask}=useTask
+    const {addTask}=useTask()
 
     const add=(e)=>{
         e.preventDefault()
@@ -29,4 +29,3 @@ function Taskform() {
 }
 
 export default Taskform
-z

@@ -13,6 +13,6 @@ import React, { createContext, useContext } from 'react'
 
  export const TaskContextProvider=TaskContext.Provider;
 
- export function useTask(){
+ export const  useTask=()=>{
     return useContext(TaskContext)
  }
