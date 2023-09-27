@@ -14,13 +14,24 @@ function App() {
   const deleteTask=(id)=>{
     setTodos((prev)=>prev.filter((oldvals)=>oldvals.id !== id))
   }
-   const toggleCompleted=(id)=>{
+   const toggleComplete=(id)=>{
     setTodos((prev)=>prev.map((oldvals)=>oldvals === id ? {...oldvals,cheacked: !oldvals.cheacked} :oldvals))
    }
+//Get VAlue from local Storage
+useEffect(() => {
+  const TODOS =JSON.parse(localStorage.getItem("todos"));
+  if(todos && todos.length > 0){
+    setTodos(todos)
+  }
+}, []);
 
+//Add Value in Local Storage
+useEffect(() => {
+  localStorage.setItem("todos",JSON.stringify(todos))
+}, [todos]);
 
   return (
-    <TaskContextProvider value={{todos,addTask,updateTask,deleteTask,toggleCompleted}}>
+    <TaskContextProvider value={{todos,addTask,updateTask,deleteTask,toggleComplete}}>
      <div className="bg-[#172842] min-h-screen py-8">
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
