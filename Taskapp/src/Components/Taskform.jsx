@@ -7,7 +7,7 @@ function Taskform() {
 
     const add=(e)=>{
         e.preventDefault()
-        if(!todo) return
+        if(!todo) return;
         addTask({todo,cheacked:false})
         setTodo("")
     }
