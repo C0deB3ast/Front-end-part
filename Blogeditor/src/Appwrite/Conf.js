@@ -12,7 +12,7 @@ export class DataBaseService {
     this.database = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }
-  status;
+  
   async createDatabase({ title, slug, content, userId, featuredImg, status }) {
     try {
       return await this.database.createDocument(
@@ -63,7 +63,7 @@ export class DataBaseService {
 
   //File upload/delete Service
   
-  async updateFile(file){
+  async uploadFile(file){
     try {
       return await this.bucket.createFile(config.appWriteBucketId,ID.unique(),file)
     } catch (error) {
@@ -81,7 +81,7 @@ export class DataBaseService {
   }
 
   getFilePreview(fileID){
-    return thiis.bucket.getFilePreview(config.appWriteBucketId,fileID)
+    return this.bucket.getFilePreview(config.appWriteBucketId,fileID)
   }
 }
 
