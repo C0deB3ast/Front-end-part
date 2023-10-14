@@ -10,6 +10,7 @@ import Selector from "./Selector";
 import Login from "./Login";
 import Signup from "./Signup";
 import AuthLayout from "./AuthLayout";
+import RTE from "./RTE"
 
 export {
   Header,
@@ -24,4 +25,5 @@ export {
   Login,
   Signup,
   AuthLayout,
+  RTE,
 };
