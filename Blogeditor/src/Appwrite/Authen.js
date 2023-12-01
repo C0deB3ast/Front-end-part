@@ -1,54 +1,62 @@
-import config from "../config/config";
+import config from "../config/config.js";
 import { Client, Account, ID } from "appwrite";
 
 export class AuthenService {
   client = new Client();
   account;
-  consructor(){
+
+  constructor() {
     this.client
       .setEndpoint(config.appWriteUrl)
-      .setProject(config.appWriteProjectId)
-      this.account = new Account(this.client)
+      .setProject(config.appWriteProjectId);
+    this.account = new Account(this.client);
   }
-  async createAccount({email, password,name}){ //we  here destructure services of appwrite bcs we do not want to depend on appwrite for authentication
-    //this method can be fail so for failSafe
+
+  async createAccount({ email, password, name }) {
     try {
-      const userAccount = await this.account.create(ID.unique(),email, password, name)
+      const userAccount = await this.account.create(
+        ID.unique(),
+        email,
+        password,
+        name
+      );
       if (userAccount) {
-        // call login method
-        return this.login({email, password})
+        // call another method
+        return this.login({ email, password });
       } else {
         return userAccount;
       }
     } catch (error) {
-       throw error
+      throw error;
     }
   }
 
-  async login({email, password}){
+  async login({ email, password }) {
     try {
       return await this.account.createEmailSession(email, password);
     } catch (error) {
-      throw error
+      throw error;
     }
   }
-  async getCurrentUser(){
+
+  async getCurrentUser() {
     try {
-    return await this.account.get();
+      return await this.account.get();
     } catch (error) {
-      console.log("Backend Service :: getCurrentUser :: error", error);
+      console.log("Appwrite serive :: getCurrentUser :: error", error);
     }
+
     return null;
   }
-  async logout(){
+
+  async logout() {
     try {
-      return await this.account.deleteSessions();
+      await this.account.deleteSessions();
     } catch (error) {
-      throw error
+      console.log("Appwrite serive :: logout :: error", error);
     }
   }
 }
-
 
 const authenService = new AuthenService();
 

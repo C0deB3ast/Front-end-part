@@ -1,4 +1,4 @@
-import config from "../config/config";
+import config from "../config/config.js";
 import { Client, ID, Storage, Databases, Query } from "appwrite";
 
 export class DataBaseService {

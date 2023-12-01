@@ -1,10 +1,9 @@
-import { useState ,useEffect } from 'react'
+import React,  { useState ,useEffect } from 'react'
 import { useDispatch } from 'react-redux' 
 import authenService from './Appwrite/Authen'
-import { login,logout } from './Features/authSlice'
+import { login,logout } from './Features/authenSlice'
 import './App.css'
-import Header from './Components/Header/Header'
-import Footer from './Components/Footer/Footer'
+import { Footer,Header } from './Components'
 import {Outlet} from 'react-router-dom'
 
 function App() {

@@ -1,7 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit"
+import authenSlice from "../Features/authenSlice";
 
 const godam = configureStore({
-    reducer:{}
+    reducer:{
+        authen:authenSlice,
+    }
 });
 
 export default godam; 
